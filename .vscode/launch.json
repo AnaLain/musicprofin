@@ -6,17 +6,13 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch DemoApplication",
+            "name": "Spring Boot-DemoApplication<demo>",
             "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
             "mainClass": "com.musicprofin.demo.DemoApplication",
-            "projectName": "demo"
-        },
-        {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "projectName": "demo",
+            "args": ""
         }
     ]
 }
