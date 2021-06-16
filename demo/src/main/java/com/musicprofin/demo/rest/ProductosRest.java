@@ -20,12 +20,19 @@ public class ProductosRest {
 
     
 
-    @GetMapping
+    @GetMapping//actualice producto con BD
     public ResponseEntity<List<productos>> getProductos(){
         List<productos> products =prodDao.findAll();
         return ResponseEntity.ok(products);
 
     }
+
+    /*@GetMapping// PRODUCTO INDIVIDUAL
+    public ResponseEntity<List<productos>> getProductos(){
+        List<productos> products =prodDao.findAll();
+        return ResponseEntity.ok(products);
+
+    }*/
     /*public ResponseEntity<productos> getProductos(){
         productos producto = new productos();
         producto.setId(1L);
