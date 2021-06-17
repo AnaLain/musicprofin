@@ -10,15 +10,17 @@ import com.musicprofin.demo.entitys.productos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("products")
 public class ProductosRest {
 
     @Autowired
@@ -45,10 +47,30 @@ public class ProductosRest {
 
     // traer un nyuevo valor a BD
     @PostMapping
-    public ResponseEntity<productos> createProduct(@RequestBody productos productos){
+    public ResponseEntity<productos> createProductsEntity(@RequestBody productos productos){
         productos newProducts = prodDao.save(productos);
         return ResponseEntity.ok(newProducts);
-    }   
+    }  
+    
+    @DeleteMapping(value = "{productosId}")//delete
+    public ResponseEntity<Void> deleteProducts(@PathVariable("productosId") Long productosId){
+        prodDao.deleteById(productosId);
+        return ResponseEntity.ok(null);
+    }
+
+     @PutMapping//actualizar
+     public ResponseEntity<productos> updateProductsEntity(@RequestBody productos productos){
+        Optional<productos> optionalProductos = prodDao.findById(productos.getId());
+        if(optionalProductos.isPresent()){
+            productos updateProductos = optionalProductos.get();
+            updateProductos.setName(productos.getName());
+            prodDao.save(updateProductos);
+            return ResponseEntity.ok(updateProductos);
+        }else{
+            return ResponseEntity.noContent().build();
+            } 
+     }
+    
     /*public ResponseEntity<productos> getProductos(){
         productos producto = new productos();
         producto.setId(1L);
