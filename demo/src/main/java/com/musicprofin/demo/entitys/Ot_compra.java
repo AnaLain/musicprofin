@@ -12,13 +12,13 @@ import javax.persistence.Table;
 public class Ot_compra {
     
     @Id
-    @Column(name="id")
+    @Column(name="id_ot")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id_ot;
 
-    @Column(name="name", nullable=false, length=30)
+    @Column(name="orden_ot", nullable=false, length=30)
     private String orden_ot; 
-    @Column(name="name", nullable=false, length=12)
+    @Column(name="fecha_ot", nullable=false, length=12)
     private int fecha_ot;
 
     public Long getId_ot() {

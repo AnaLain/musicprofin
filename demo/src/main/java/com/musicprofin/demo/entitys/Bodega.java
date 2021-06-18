@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Bodega {
 
     @Id
-    @Column(name="id")
+    @Column(name="id_bod")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id_bod;
 

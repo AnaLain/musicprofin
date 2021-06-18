@@ -12,19 +12,19 @@ import javax.persistence.Table;
 public class Precio {
 
     @Id
-    @Column(name="id")
+    @Column(name="id_precio")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id_pecio;
+    private Long id_precio;
 
     @Column(name="cod_precio", nullable=false, length=30)
     private String cod_precio;
 
     
     public Long getId_pecio() {
-        return id_pecio;
+        return id_precio;
     }
-    public void setId_pecio(Long id_pecio) {
-        this.id_pecio = id_pecio;
+    public void setId_pecio(Long id_precio) {
+        this.id_precio = id_precio;
     }
     public String getCod_precio() {
         return cod_precio;
