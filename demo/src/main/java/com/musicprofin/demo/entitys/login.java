@@ -1,15 +1,30 @@
 package com.musicprofin.demo.entitys;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-
-
+@Entity
+@Table(name="rut_login")
 public class login {
     
+    @Id
+    @Column(name="id_login")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id_login;
+
+    @Column(name="rut_login", nullable=false, length=30)
     private String rut_login; 
+    @Column(name="contrasena_login", nullable=false, length=30)
     private String contrasena_login;
+    @Column(name="correo_login", nullable=false, length=30)
     private String correo_login;
+    @Column(name="nom_login", nullable=false, length=30)
     private String nom_login;
+    @Column(name="ape_login", nullable=false, length=30)
     private String ape_login;
 
     
