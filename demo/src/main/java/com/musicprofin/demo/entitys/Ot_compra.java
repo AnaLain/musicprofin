@@ -1,10 +1,26 @@
 package com.musicprofin.demo.entitys;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Ot_compra")
 public class Ot_compra {
     
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id_ot;
+
+    @Column(name="name", nullable=false, length=30)
     private String orden_ot; 
+    @Column(name="name", nullable=false, length=12)
     private int fecha_ot;
+
     public Long getId_ot() {
         return id_ot;
     }

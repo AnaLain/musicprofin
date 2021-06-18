@@ -1,12 +1,32 @@
 package com.musicprofin.demo.entitys;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Contador")
 public class Contador {
+
+    @Id
+    @Column(name="id_con")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id_con;
+
+    @Column(name="rut_con", nullable=false, length=30)
     private String rut_con;
+    @Column(name="nom_con", nullable=false, length=30)
     private String nom_con; 
+    @Column(name="ape_con", nullable=false, length=30)
     private String ape_con;
+    @Column(name="edad_con", nullable=false, length=30)
     private String edad_con;
+    @Column(name="correo_con", nullable=false, length=30)
     private String correo_con;
+    @Column(name="tel_con", nullable=false, length=30)
     private int tel_con;
 
     
